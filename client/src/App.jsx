@@ -6,6 +6,7 @@ import ThemeButton from './context/ThemeButton';
 
 import { ThemeProvider } from './context/theme';
 import Sidebar from './components/Sidebar';
+import { BrowserRouter } from 'react-router-dom';
 function App() {
   const [themeMode, setThemeMode] = useState('light')
   
@@ -27,12 +28,15 @@ function App() {
     {themeMode, darkTheme, lightTheme}
    
   } >
+    <BrowserRouter>
+    
     <div className='flex flex-row justify-between bg-white dark:bg-black text-black dark:text-white h-[100vh] w-[100vw]'>
   <Sidebar className=" "/>
    <div>
     PodStream
    </div>
    </div>
+   </BrowserRouter>
   <ThemeButton />
 </ThemeProvider>
   )

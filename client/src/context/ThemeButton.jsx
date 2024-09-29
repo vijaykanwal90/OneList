@@ -1,7 +1,7 @@
 import React from 'react'
 import useTheme from './theme';
 import { useEffect, useState } from 'react'
-
+import {MdLightMode} from "react-icons/md"
 const ThemeButton = () => {
   const {themeMode, darkTheme, lightTheme} = useTheme()
   const [theme , setTheme] = useState('light');
@@ -25,7 +25,12 @@ const handleClick  = ()=>{
 
   return (
     <div>
-      <button className='bg-green-300 dark:bg-black dark:text-white' onClick={handleClick}>Theme</button>
+      <button className='w-[100%]' onClick={handleClick}>
+      <li className="flex items-center py-2 pl-2 hover:bg-gray-400"> 
+        <MdLightMode className="mr-2" /> 
+        LightMode
+      </li> 
+      </button>
     </div>
   )
 }
