@@ -26,7 +26,7 @@ const handleClick  = ()=>{
   return (
     <div>
       <button className='w-[100%]' onClick={handleClick}>
-      <li className="flex items-center py-2 pl-2 hover:bg-gray-400"> 
+      <li className="flex items-center py-2 hover:bg-gray-400"> 
         <MdLightMode className="mr-2" /> 
         LightMode
       </li> 

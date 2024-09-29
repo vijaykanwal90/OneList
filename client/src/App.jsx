@@ -10,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 function App() {
   const [themeMode, setThemeMode] = useState('light')
   
+  
 
   const darkTheme = ()=>{
     setThemeMode('dark')
@@ -28,16 +29,16 @@ function App() {
     {themeMode, darkTheme, lightTheme}
    
   } >
-    <BrowserRouter>
     
-    <div className='flex flex-row justify-between bg-white dark:bg-black text-black dark:text-white h-[100vh] w-[100vw]'>
-  <Sidebar className=" "/>
-   <div>
-    PodStream
-   </div>
-   </div>
+    
+    <div className='flex flex-row justify-between  bg-white dark:bg-black text-black dark:text-white h-[100vh] w-[100vw]'>
+    <BrowserRouter>
+  <Sidebar className=" " />
+   
+ 
    </BrowserRouter>
-  <ThemeButton />
+   </div>
+  
 </ThemeProvider>
   )
 }

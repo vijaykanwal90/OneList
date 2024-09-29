@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { IoClose } from "react-icons/io5";
 import { FaHome, FaSearch , FaHeart ,FaCloudUploadAlt } from "react-icons/fa";
 import { MdLightMode } from "react-icons/md";
@@ -8,6 +8,7 @@ import ThemeButton from '../context/ThemeButton';
 // import { Button } from '@mui/material';
 
 const Sidebar = () => {
+  const [menuOpen , setMenuOpen] = useState(true)
 //   const menuItems = [
 //     {
 //     link:"/",
@@ -44,35 +45,35 @@ const Sidebar = () => {
 //   },
 // ]
   return (
-    <div className='ml-4 flex flex-col '>
-      <div className='flex flex-row mt-6 item-center w-[30%]'>
+    <div className={` flex flex-col min-h screen ${menuOpen ? 'w-72':'w-16'} duration-500 bg-black dark:bg-white text-white dark:text-black`}>
+      <div className='flex py-3 justify-end'>
       <div className='text-2xl font-bold text-purple-800 mx-auto '>
         AllTogether
       </div>
-      <div className='text-gray-800 block lg:hidden'>
-      <IoClose size={30} className=''/>
+      <div className='text-gray-800'>
+      <IoClose size={36} className='bg-white' onClick={()=>{
+        console.log('clicked')
+        setMenuOpen(!menuOpen)
+      }}/>
       </div>
       </div>
       
-      <div className=''>
-      <ul>
-       
-        
-        
+      <div className='ml-4 flex flex-col gap-4 relative'>
+      <ul>        
        <Link to="/">
-        <li className="flex items-center py-2 pl-2 hover:bg-gray-400"> 
+        <li className={` ${!menuOpen && 'opacity-0 translate-x-28 overflow-hidden' } flex items-center py-2  hover:bg-gray-400`}> 
         <FaHome className="mr-2 " /> 
         DashBoard
       </li>
       </Link>
       <Link to="/search">
-      <li className="flex items-center py-2 pl-2 hover:bg-gray-400"> 
+      <li className="flex items-center py-2  hover:bg-gray-400"> 
         <FaSearch className="mr-2" /> 
         Search
       </li>
       </Link>
       <Link to="/favourites">
-      <li className="flex items-center py-2  pl-2 hover:bg-gray-400"> 
+      <li className="flex items-center py-2   hover:bg-gray-400"> 
         <FaHeart className="mr-2" /> 
         Favourites
       </li>
@@ -82,7 +83,7 @@ const Sidebar = () => {
       <div className=' flex flex-col '>
         
       <button to="/">
-      <li className="flex items-center py-2 pl-2 hover:bg-gray-400"> 
+      <li className="flex items-center py-2  hover:bg-gray-400"> 
         <FaCloudUploadAlt className="mr-2" /> 
         Upload
       </li>
@@ -90,7 +91,7 @@ const Sidebar = () => {
       <ThemeButton className="w-[100%]">
            </ThemeButton>
       <button to="/">
-        <li className="flex items-center py-2 pl-2 hover:bg-gray-400"> 
+        <li className="flex items-center py-2  hover:bg-gray-400"> 
         <IoLogOutOutline className="mr-2" /> 
         Logout
       </li>      </button>
